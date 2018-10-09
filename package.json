@@ -1,0 +1,24 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "A full website from scratch that helps in camps ground",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebizimana/YelpCamp.git"
+  },
+  "author": "Elie Bizimana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebizimana/YelpCamp/issues"
+  },
+  "homepage": "https://github.com/ebizimana/YelpCamp#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "npm": "^6.4.1"
+  }
+}
