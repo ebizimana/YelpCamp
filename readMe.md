@@ -33,3 +33,8 @@ YelpCamp is going to be built in different version that have different objective
 * Install and configure mongoose
 * Setup campground model
 * Use campground model inside of our routes!
+
+### Show Page
+* Review the RESTful routes we've seen so far
+* Add descrioption to our campground model
+* Add a show route/template 
