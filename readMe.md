@@ -39,10 +39,21 @@ YelpCamp is going to be built in different version that have different objective
 * Add descrioption to our campground model
 * Add a show route/template
 
-RESTFUL ROUTES
+### RESTFUL ROUTES
+#### Introduction
+* Dfine REST and explain WHY it matters
+* List all 7 RESTful routes
+* Show ecample of RESTful routing in practice
+
+REST - a mapping vetween HTTP routes and CRUD
+CRUD - Create Read Update Destroy
+
 name    |   url       | verb  | desc.
 =============================================
-INDEX   |  /dogs      | GET   | Display a list of all dog
-NEW     |  /dogs/new  | GET   | Displays form to make a new dog
-CREATE  |  /dogs      | POST  | Add new dog to DB
-SHOW    |  /dogs/:id  | GET   | Shows ingo about one dog
+INDEX   |  /dogs          | GET    | List all dogs
+NEW     |  /dogs/new      | GET    | Show new dog form
+CREATE  |  /dogs          | POST   | Create a new dog, redirect
+SHOW    |  /dogs/:id      | GET    | Shows info about one dog
+EDIT    |  /dogs/:id/edit | GET    | Show edit form for one dog
+UPDATE  |  /dogs/:id      | PUT    | Update a particular dog, redirect
+DESTROY |  /dogs/:id      | DELETE | Delete a particular dog, redirect
