@@ -37,4 +37,12 @@ YelpCamp is going to be built in different version that have different objective
 ### Show Page
 * Review the RESTful routes we've seen so far
 * Add descrioption to our campground model
-* Add a show route/template 
+* Add a show route/template
+
+RESTFUL ROUTES
+name    |   url       | verb  | desc.
+=============================================
+INDEX   |  /dogs      | GET   | Display a list of all dog
+NEW     |  /dogs/new  | GET   | Displays form to make a new dog
+CREATE  |  /dogs      | POST  | Add new dog to DB
+SHOW    |  /dogs/:id  | GET   | Shows ingo about one dog
