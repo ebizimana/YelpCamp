@@ -1,21 +1,16 @@
-var express     = require("express"),
-    app         = express(),
-    bodyParser  = require("body-parser"),
-    mongoose    = require("mongoose")
+var bodyParser   = require("body-parser"),
+    express      = require("express"),
+    mongoose     = require("mongoose"),
+    app          = express();
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+//Modoles
+var Campground  = require("./models/campground")
+
+mongoose.connect("mongodb://localhost/yelp_camp",{ useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended:true}))
 app.set("view engine","ejs")
 
-// SCHEMA SETUP
-var campgroundSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  description: String
-});
-
-var Campground = mongoose.model("Campground",campgroundSchema)
-
+// Routes
 app.get("/", function(req,res){
   res.render("home")
 })
@@ -61,6 +56,7 @@ app.get("/campgrounds/:id",function(req,res){
   })
 
 })
+
 app.listen(3000, function(){
   console.log("Server Has Started....");
 })
