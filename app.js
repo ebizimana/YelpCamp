@@ -5,6 +5,7 @@ var bodyParser   = require("body-parser"),
 
 //Modoles
 var Campground  = require("./models/campground"),
+    Comment    = require("./models/comment")
     SeedDB      = require("./seeds");
 
 
@@ -77,6 +78,25 @@ app.get("/campgrounds/:id/comment/new",function(req,res){
       console.log(err);
     }else {
       res.render("comment/new",{camp:foundCamp})
+    }
+  })
+})
+
+app.post("/campgrounds/:id/comment",function(req,res){
+  Campground.findById(req.params.id,function(err,campground){
+    if(err){
+      console.log(err);
+      res.redirect("/campgrounds")
+    }else{
+      Comment.create(req.body.comment,function(err,comment){
+        if(err){
+          console.log(err);
+        }else{
+          campground.comments.push(comment)
+          campground.save()
+          res.redirect("/campgrounds/" + campground._id)
+        }
+      })
     }
   })
 })
