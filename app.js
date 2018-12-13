@@ -4,11 +4,14 @@ var bodyParser   = require("body-parser"),
     app          = express();
 
 //Modoles
-var Campground  = require("./models/campground")
+var Campground  = require("./models/campground"),
+    SeedDB      = require("./seeds");
+
 
 mongoose.connect("mongodb://localhost/yelp_camp",{ useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended:true}))
 app.set("view engine","ejs")
+SeedDB();
 
 // Routes
 app.get("/", function(req,res){
@@ -22,8 +25,8 @@ app.get("/campgrounds",function(req,res){
       console.log(err);
     } else{
       console.log(allcamps);
+      res.render("index",{camps:allcamps})
     }
-    res.render("index",{camps:allcamps})
   })
 
 })
@@ -33,7 +36,11 @@ app.post("/campgrounds", function(req,res){
   var name = req.body.name
   var image = req.body.image
   var desc = req.body.description
-  var newCamp = {name: name, image: image, description: desc}
+  var newCamp = {
+    name: name,
+    image: image,
+    description: desc
+  }
   Campground.create(newCamp,function(err,camp){
     if(err){
       console.log(err);
@@ -51,12 +58,14 @@ app.get("/campgrounds/new",function(req,res){
 
 // SHOW - Shows ingo avout one campground
 app.get("/campgrounds/:id",function(req,res){
-  Campground.findById(req.params.id,function(err,foundCamp){
-    res.render("show",{camp:foundCamp})
+  Campground.findById(req.params.id).populate("comments").exec(function(err,foundCamp){
+    if(err){
+      console.log(err);
+    }else{
+       res.render("show",{camp:foundCamp})
+    }
   })
-
 })
-
 app.listen(3000, function(){
   console.log("Server Has Started....");
 })

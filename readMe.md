@@ -43,3 +43,12 @@ YelpCamp is going to be built in different version that have different objective
 * Create a models directory
 * Use modole.exports
 * Require everything correctly
+
+# Add Seeds File
+* Add a seeds.js file
+* Run the seeds file every time the server starts
+* The Seed file is to add some sample data to work with
+
+# Add the Comment model!
+*  Make our error go way
+* Display comments on Campground show page
