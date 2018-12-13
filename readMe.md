@@ -52,3 +52,8 @@ YelpCamp is going to be built in different version that have different objective
 # Add the Comment model!
 *  Make our error go way
 * Display comments on Campground show page
+
+# Comment New/CREATE
+* Discuss nested routes
+* Add the comment new and create routes
+* Add the new comment form 

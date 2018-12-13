@@ -25,7 +25,7 @@ app.get("/campgrounds",function(req,res){
       console.log(err);
     } else{
       console.log(allcamps);
-      res.render("index",{camps:allcamps})
+      res.render("campground/index",{camps:allcamps})
     }
   })
 
@@ -53,7 +53,7 @@ app.post("/campgrounds", function(req,res){
 
 // NEW - Display form to make a new campground
 app.get("/campgrounds/new",function(req,res){
-  res.render("new")
+  res.render("campground/new")
 })
 
 // SHOW - Shows ingo avout one campground
@@ -62,10 +62,25 @@ app.get("/campgrounds/:id",function(req,res){
     if(err){
       console.log(err);
     }else{
-       res.render("show",{camp:foundCamp})
+       res.render("campground/show",{camp:foundCamp})
     }
   })
 })
+
+//======================
+// Comments Routes
+//======================
+
+app.get("/campgrounds/:id/comment/new",function(req,res){
+  Campground.findById(req.params.id,function(err,foundCamp){
+    if(err){
+      console.log(err);
+    }else {
+      res.render("comment/new",{camp:foundCamp})
+    }
+  })
+})
+
 app.listen(3000, function(){
   console.log("Server Has Started....");
 })
