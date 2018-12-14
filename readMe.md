@@ -56,4 +56,32 @@ YelpCamp is going to be built in different version that have different objective
 # Comment New/CREATE
 * Discuss nested routes
 * Add the comment new and create routes
-* Add the new comment form 
+* Add the new comment form
+
+# Style Show Page
+* Add sidebar to show page
+* Display comments nicely
+
+# Classes
+## Show Page  
+* container
+  * row
+    * col-md-3
+      * lead [The brand]
+      * list-group
+        * list-group-item active [Item Category]
+    * col-md-9
+      * thumbnail
+        * img-responsive [Image]
+        * caption-full
+          * pull-right  [Price: handcode in]
+          * [Add "Name"]
+          * [Add "Description"]
+      * well
+        * text-right [The button to create new comment]
+        * [Add hr]
+        * row
+          * col-md-12
+            * [Add "Author"]
+            * pull-right [10 days ago]
+            * [Add "Text"]
