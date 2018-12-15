@@ -1,12 +1,17 @@
-var bodyParser   = require("body-parser"),
-    express      = require("express"),
-    mongoose     = require("mongoose"),
-    app          = express();
+var express               = require("express"),
+    passport              = require("passport"),
+    mongoose              = require("mongoose"),
+    bodyParser            = require("body-parser"),
+    passportLocal         = require("passport-local"),
+    expressSession        = require("express-session"),
+    passportLocalMongoose = require("passport-local-mongoose"),
+    app                   = express();
 
 //Modoles
-var Campground  = require("./models/campground"),
-    Comment    = require("./models/comment")
-    SeedDB      = require("./seeds");
+var SeedDB      = require("./seeds"),
+    User      = require("./models/user"),
+    Comment    = require("./models/comment"),
+    Campground  = require("./models/campground");
 
 
 mongoose.connect("mongodb://localhost/yelp_camp",{ useNewUrlParser: true});

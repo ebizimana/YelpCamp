@@ -85,3 +85,28 @@ YelpCamp is going to be built in different version that have different objective
             * [Add "Author"]
             * pull-right [10 days ago]
             * [Add "Text"]
+
+# Authentication
+## Intro to Author
+* What tools are we using?
+    * Passport
+    * Passport Local
+    * Passport Local Mongoose
+* Walk through auth flow
+* Discuss sessions
+    * Express-Session
+
+# Auth Pt. 1 - Add User Model
+* Install all packages needed for auth
+* Define User Model
+
+# Necessary Packages
+* passport
+* passport-local
+* passport-local-mongoose
+* express-session
+
+# Auth Pt. 2 - Register
+* Configure Passport
+* Add register routes
+* Add register template 
