@@ -149,4 +149,9 @@ YelpCamp is going to be built in different version that have different objective
 # Authorization
 * User can only edit his/her Campgrounds
 * User  can only delete his/her campgrounds
-* Hide/Show edit and delete buttons 
+* Hide/Show edit and delete buttons
+
+# Editing Comments
+* Add Edit route for comments
+* Add Edit button
+* Add Update route 
