@@ -2,7 +2,6 @@ var express       = require("express"),
     router        = express.Router(),
     Campground    = require("../models/campground")
 
-
 // INDEX - show all campgrounds
 router.get("/",function(req,res){
   Campground.find({},function(err, allcamps){
@@ -15,15 +14,26 @@ router.get("/",function(req,res){
 
 })
 
+// NEW - Display form to make a new campground
+router.get("/new",isLoggedIn, function(req,res){
+  res.render("campground/new")
+})
+
 // CREATE - Add a new campground
-router.post("/", function(req,res){
-  var name = req.body.name
-  var image = req.body.image
-  var desc = req.body.description
+router.post("/", isLoggedIn, function(req,res){
+  var name = req.body.name,
+      image = req.body.image,
+      desc = req.body.description,
+      author = {
+        id: req.user._id,
+        username: req.user.username
+      };
+
   var newCamp = {
     name: name,
     image: image,
-    description: desc
+    description: desc,
+    author: author
   }
   Campground.create(newCamp,function(err,camp){
     if(err){
@@ -34,12 +44,6 @@ router.post("/", function(req,res){
   })
 
 })
-
-// NEW - Display form to make a new campground
-router.get("/new",function(req,res){
-  res.render("campground/new")
-})
-
 // SHOW - Shows info about one campground
 router.get("/:id",function(req,res){
   Campground.findById(req.params.id).populate("comments").exec(function(err,foundCamp){
@@ -50,5 +54,13 @@ router.get("/:id",function(req,res){
     }
   })
 })
+
+// middleware to autheticate the user
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+  res.redirect("/login")
+}
 
 module.exports = router

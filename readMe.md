@@ -126,3 +126,11 @@ YelpCamp is going to be built in different version that have different objective
 
 # Refactor the Routes
 * Use Express router to reorganize all routes
+
+# Users + Comments
+* Associate users and comments
+* Save author's name to a comment automatically
+
+# Users + Campgrounds
+* Prevent an unathenticated user from creating a campground
+* Save username+id to newly created campground  
