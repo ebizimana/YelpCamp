@@ -113,4 +113,13 @@ YelpCamp is going to be built in different version that have different objective
 
 # Auth Pt. 3 - Login
 * Add Login routes
-* Add login template 
+* Add login template
+
+# Auth Pt. 4 - Logout/Navbar
+* Add logout route
+* Prevent user from adding a comment if not signed in
+* Add links to navbar
+* Show/hide auth links correctly
+
+# Auth Pt. 5 - Show/Hide Links
+* Show/hide auth links in navbar correctly
