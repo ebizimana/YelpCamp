@@ -23,6 +23,7 @@ SeedDB();
 //=================
 // PASSPORT CONFIG
 //=================
+
 app.use(expressSession({
   secret:"Elie Bizimana",
   resave: false,
@@ -37,6 +38,7 @@ passport.deserializeUser(User.deserializeUser())
 //=================
 // CAMPPGROUND ROUTES
 //==================
+
 app.get("/", function(req,res){
   res.render("home")
 })
@@ -126,6 +128,8 @@ app.post("/campgrounds/:id/comment",function(req,res){
 //=============
 // AUTH ROUTES
 //=============
+
+//SignUp
 app.get("/register",function(req,res){
   res.render("register")
 })
@@ -141,6 +145,16 @@ app.post("/register",function(req,res){
     })
   })
 })
+
+// LogIn
+app.get("/login",function(req,res){
+  res.render("login")
+})
+app.post("/login",passport.authenticate("local",{
+  successRedirect:"/campgrounds",
+  failureRedirect:"/login"
+}))
+
 
 app.listen(3000, function(){
   console.log("Server Has Started....");

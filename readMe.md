@@ -109,4 +109,8 @@ YelpCamp is going to be built in different version that have different objective
 # Auth Pt. 2 - Register
 * Configure Passport
 * Add register routes
-* Add register template 
+* Add register template
+
+# Auth Pt. 3 - Login
+* Add Login routes
+* Add login template 
