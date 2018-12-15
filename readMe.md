@@ -141,3 +141,12 @@ YelpCamp is going to be built in different version that have different objective
 * Add Link to Edit Page
 * Add Update Route
 * Fix $set problem
+
+# Deleting Campgrounds
+* Add Destroy Route
+* Add Delete button
+
+# Authorization
+* User can only edit his/her Campgrounds
+* User  can only delete his/her campgrounds
+* Hide/Show edit and delete buttons 
