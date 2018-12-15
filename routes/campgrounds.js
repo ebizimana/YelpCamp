@@ -55,6 +55,29 @@ router.get("/:id",function(req,res){
   })
 })
 
+// Edit - Edits the campground
+router.get("/:id/edit",function(req,res){
+  Campground.findById(req.params.id, function(err,foundCamp){
+    if(err){
+      console.log(err);
+      res.redirect("/campgrounds")
+    }else {
+      res.render("campground/edit",{camp:foundCamp})
+    }
+  })
+})
+
+//Update - Updates a specific campground
+router.put("/:id",function(req,res){
+  Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err,camp){
+    if(err){
+      console.log(err);
+      res.redirect("/campgrounds")
+    } else{
+      res.redirect("/campgrounds/" + req.params.id)
+    }
+  })
+})
 // middleware to autheticate the user
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {

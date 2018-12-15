@@ -134,3 +134,10 @@ YelpCamp is going to be built in different version that have different objective
 # Users + Campgrounds
 * Prevent an unathenticated user from creating a campground
 * Save username+id to newly created campground  
+
+# Editing Campgrounds
+* Add Method-Override
+* Add Edit Route for Campgrounds
+* Add Link to Edit Page
+* Add Update Route
+* Fix $set problem
