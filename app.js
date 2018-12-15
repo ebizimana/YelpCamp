@@ -20,7 +20,23 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname + "/public"))
 SeedDB();
 
-// Routes
+//=================
+// PASSPORT CONFIG
+//=================
+app.use(expressSession({
+  secret:"Elie Bizimana",
+  resave: false,
+  saveUninitialized:false
+}));
+app.use(passport.initialize())
+app.use(passport.session())
+passport.use(new passportLocal(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
+//=================
+// CAMPPGROUND ROUTES
+//==================
 app.get("/", function(req,res){
   res.render("home")
 })
@@ -75,7 +91,7 @@ app.get("/campgrounds/:id",function(req,res){
 })
 
 //======================
-// Comments Routes
+// COMMENTS ROUTES
 //======================
 
 app.get("/campgrounds/:id/comment/new",function(req,res){
@@ -104,6 +120,25 @@ app.post("/campgrounds/:id/comment",function(req,res){
         }
       })
     }
+  })
+})
+
+//=============
+// AUTH ROUTES
+//=============
+app.get("/register",function(req,res){
+  res.render("register")
+})
+app.post("/register",function(req,res){
+  var newUser = new User({username: req.body.username});
+  User.register(newUser, req.body.password, function(err,user){
+    if(err){
+      console.log(err);
+      return res.render("register")
+    }
+    passport.authenticate("local")(req, res, function(){
+      res.redirect("/campgrounds")
+    })
   })
 })
 
