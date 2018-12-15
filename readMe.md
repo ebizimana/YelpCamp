@@ -123,3 +123,6 @@ YelpCamp is going to be built in different version that have different objective
 
 # Auth Pt. 5 - Show/Hide Links
 * Show/hide auth links in navbar correctly
+
+# Refactor the Routes
+* Use Express router to reorganize all routes
