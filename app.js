@@ -3,6 +3,7 @@ var express               = require("express"),
     passport              = require("passport"),
     mongoose              = require("mongoose"),
     bodyParser            = require("body-parser"),
+    flash                 = require("connect-flash"),
     passportLocal         = require("passport-local"),
     methodOverride        = require("method-override"),
     expressSession        = require("express-session"),
@@ -26,6 +27,7 @@ app.set("view engine","ejs")
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname + "/public"))
 app.use(methodOverride("_method"))
+app.use(flash())
 //SeedDB();
 
 // PASSPORT CONFIG
@@ -43,6 +45,8 @@ passport.deserializeUser(User.deserializeUser())
 //ROUTES CONFIG
 app.use(function(req,res,next){
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash("error");
+  res.locals.success = req.flash("success");
   next();
 })
 app.use(indexRouter),
