@@ -1,6 +1,7 @@
 var express       = require("express"),
     router        = express.Router(),
-    Campground    = require("../models/campground")
+    middleware    = require("../middleware"),
+    Campground    = require("../models/campground");
 
 // INDEX - show all campgrounds
 router.get("/",function(req,res){
@@ -15,12 +16,12 @@ router.get("/",function(req,res){
 })
 
 // NEW - Display form to make a new campground
-router.get("/new",isLoggedIn, function(req,res){
+router.get("/new",middleware.isLoggedIn, function(req,res){
   res.render("campground/new")
 })
 
 // CREATE - Add a new campground
-router.post("/", isLoggedIn, function(req,res){
+router.post("/", middleware.isLoggedIn, function(req,res){
   var name = req.body.name,
       image = req.body.image,
       desc = req.body.description,
@@ -56,50 +57,24 @@ router.get("/:id",function(req,res){
 })
 
 // Edit - Edits the campground
-router.get("/:id/edit",checkCampgroundOwnership, function(req,res){
+router.get("/:id/edit",middleware.checkCampgroundOwnership, function(req,res){
   Campground.findById(req.params.id,function(err,foundCamp){
     res.render("campground/edit",{camp:foundCamp})
   })
 })
 
 //Update - Updates a specific campground
-router.put("/:id",checkCampgroundOwnership, function(req,res){
+router.put("/:id",middleware.checkCampgroundOwnership, function(req,res){
   Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err,camp){
     res.redirect("/campgrounds/" + req.params.id)
   })
 })
 
 //Delete Campground
-router.delete("/:id",checkCampgroundOwnership, function(req,res){
+router.delete("/:id",middleware.checkCampgroundOwnership, function(req,res){
   Campground.findByIdAndDelete(req.params.id, function(err){
     res.redirect("/campgrounds")
   })
 })
-
-// middleware to autheticate the user
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next()
-  }
-  res.redirect("/login")
-}
-
-function checkCampgroundOwnership(req,res,next){
-  if(req.isAuthenticated()){
-    Campground.findById(req.params.id,function(err,foundCamp){
-      if(err){
-        res.redirect("back")
-      }else{
-        if(foundCamp.author.id.equals(req.user._id)){
-          next()
-        } else{
-          res.redirect("back")
-        }
-      }
-    })
-  }else{
-    res.redirect("back")
-  }
-}
 
 module.exports = router
