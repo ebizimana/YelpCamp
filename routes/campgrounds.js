@@ -23,6 +23,7 @@ router.get("/new",middleware.isLoggedIn, function(req,res){
 // CREATE - Add a new campground
 router.post("/", middleware.isLoggedIn, function(req,res){
   var name = req.body.name,
+      price = req.body.price,
       image = req.body.image,
       desc = req.body.description,
       author = {
@@ -32,6 +33,7 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 
   var newCamp = {
     name: name,
+    price: price,
     image: image,
     description: desc,
     author: author
