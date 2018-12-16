@@ -164,4 +164,6 @@ YelpCamp is going to be built in different version that have different objective
 * User can only edit his/her comments
 * User can only delete his/her comments
 * Hide/Show edit and delete buttons
-* Refactor Middleware 
+* Refactor Middleware
+
+github.com/nax3t/background-slider
