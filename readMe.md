@@ -158,4 +158,10 @@ YelpCamp is going to be built in different version that have different objective
 
 # Deleting Comments
 * Add Destroy route
-* Add Delete button 
+* Add Delete button
+
+#Authorization Part 2: Comments
+* User can only edit his/her comments
+* User can only delete his/her comments
+* Hide/Show edit and delete buttons
+* Refactor Middleware 
