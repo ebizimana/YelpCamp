@@ -40,22 +40,22 @@ body {
 }
 
 .slideshow li:nth-child(1) {
-  background-image: url(http://i.imgur.com/K3mPv14.jpg)
+  background-image: url(https://bloximages.newyork1.vip.townnews.com/heraldcourier.com/content/tncms/assets/v3/editorial/3/f4/3f4a598e-24e6-11e6-bb90-e7fe39104bf3/5749b4c86a03f.image.jpg);
 }
 .slideshow li:nth-child(2) {
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: url(http://lauren.schwaar.org/wp-content/uploads/2017/11/img9513531711267676.jpg);
   animation-delay: 10s;
 }
 .slideshow li:nth-child(3) {
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  background-image: url(https://buchanancountyindependent.files.wordpress.com/2011/12/104015395-udzqus6g.jpg);
   animation-delay: 20s;
 }
 .slideshow li:nth-child(4) {
-  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  background-image: url(https://bloximages.newyork1.vip.townnews.com/heraldcourier.com/content/tncms/assets/v3/editorial/0/f8/0f81809c-a8ad-5f04-94ba-6b03cbfaa95c/5b6a666ae2048.image.jpg?resize=400%2C285);
   animation-delay: 30s;
 }
 .slideshow li:nth-child(5) {
-  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  background-image: url(https://www.connectionpointe.org/monkimage.php?mediaDirectory=mediafiles&mediaId=5451020&fileName=mmskids-1200-630-0-0.jpg);
   animation-delay: 40s;
 }
 
@@ -69,14 +69,14 @@ body {
     animation-timing-function: ease-out;
   }
   20% {
-    opacity: 1
+    opacity: 1;
   }
   30% {
-    opacity: 0
+    opacity: 0;
   }
 }
 
 /* Older browser support - .no-cssanimations class added by modernizr */
 .no-cssanimations .slideshow li {
-	opacity: 1;
+  opacity: 1;
 }

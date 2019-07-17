@@ -14,6 +14,7 @@ var express               = require("express"),
 var campgroundRouter = require("./routes/campgrounds"),
     commentRouter    = require("./routes/comments"),
     indexRouter      = require("./routes/index");
+    
 
 //MODELS
 var SeedDB      = require("./seeds"),
