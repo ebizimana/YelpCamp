@@ -23,7 +23,7 @@
         <div class="caption-full">
           <h4 class="pull-right"><%= camp.price %></h4>
           <h4><a href="/campgrounds/<%=camp._id %>"><%=camp.name %></a></h4>
-          <p><%= camp.description %></p>
+          <p><%= camp.description.substring(0,10) %>....</p>
         </div>
       </div>
     </div>
