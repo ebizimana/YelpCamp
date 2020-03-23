@@ -45,6 +45,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
     }
   });
 });
+
 // SHOW - Shows info about one campground
 router.get("/:id", function(req, res) {
   Campground.findById(req.params.id)

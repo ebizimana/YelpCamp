@@ -23,8 +23,9 @@ var SeedDB      = require("./seeds"),
     Campground  = require("./models/campground");
 
 // APP CONFIG
+console.log(process.env)
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"
-mongoose.connect(url,{ useNewUrlParser: true})
+mongoose.connect(url,{ useNewUrlParser: true,  useUnifiedTopology: true })
 app.set("view engine","ejs")
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname + "/public"))
